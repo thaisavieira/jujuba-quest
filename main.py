@@ -56,14 +56,42 @@ def show_title():
 ⠀⠀⠙⠻⢶⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
          ''')
 def start_mini_game():
-   hp = 100
-   lv = 1
-   strength = 1
-   xp = 0
-   inventory = []
-   status = True #Alive or death
+   list_of_attributes = {'hp': 100, 'lv': 1, 'strength': 3, 'xp': 0, 'inventory':[], 'status':True}
+   
+   return list_of_attributes
+
+def drawn_opponents(jujuba_lv):
+   #opponents' list: [name, hp, strength, xp]
+   mosquito = ['mosquito', 5,1,1]
+   cockroach = ['cockroach',10,2,2]
+   rat = ['rat', 15, 5, 10]
+   fish = ['fish', 15, 3, 15]
+   bird = ['bird', 20, 4, 20]
+   chicken = ['chicken', 30, 7, 6, 30]
+   snake = ['snake',50, 10, 50]
+   
+   if jujuba_lv < 5:
+      opponent_drawn = random.choice([mosquito, cockroach])
+   elif jujuba_lv < 10:
+      opponent_drawn = random.choice([rat, fish, bird, chicken])
+   else:
+      opponent_drawn = snake
+      
+   
+   return opponent_drawn
+
+def game_over():
+   print('You were a great Jujuba!')
+   exit(0)
    
    
-   
+
+
 show_title()
-start_mini_game()
+
+list_of_attributes = start_mini_game()
+ 
+print(list_of_attributes)
+
+opponent_drawn = drawn_opponents(6)
+print(opponent_drawn)
