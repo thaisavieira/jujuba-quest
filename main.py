@@ -1,37 +1,17 @@
+import time
+import math
 import random
 
-# Title and welcome
-# Character creation
-   ## HP: 100
-   ## Level: 1
-   ## Str: 3
-   ## Exp: 0
-   ## Inventory: 0
-   ## Status: Alive
-   
-# Combat system
-# Character progression
-# Items and inventory
-
-def title_screen_selections():
-   option = input('>')
-   if option.lower() == 'play':
-      start_game()
-   elif option.lower() == 'help':
-      help_menu()
-   elif option.lower() == 'quit':
-      quit_game()
-   else: 
-      print('Type a valid command!')
-      
-
-def title_screen():
-   print('######################################')
-   print ('##### Welcome to Jujubas Quest! #####')
-   print('######################################')
-   print('              - Play -                ')
-   print('              - Help -                ')
-   print('              - Quit -                ')
-
-title_screen()
-#title_screen_selections()
+classTypes = ['Mage', 'Barbarian', 'Acrher', 'Cleric']
+statsNames = ['Attack', 'Speed', 'Defense', 'specialPower', 'Health']
+classStats = [[3,5,5,10,100],[10,7,3,3,100],[7,10,5,1,100],[8,8,9,10,100]]
+playerName = ''
+playerStats = [0,0,0,0,0]
+statAdjustment = [0,0,0,0,0]
+playerClass = -1
+money = 500
+playerStatus = 'Alive'
+playerLevel = 0
+playerExp = 0
+currentLocation = 'Home'
+placesToTravel = [[],[]]
